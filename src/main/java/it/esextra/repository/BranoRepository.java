@@ -9,14 +9,13 @@ import java.util.List;
 
 @Repository
 public interface BranoRepository extends JpaRepository<Brano,Long> {
-    @Query("select b from Brano b order by voto desc")
+    @Query("select b from Brano b order by b.voto desc")
     List<Brano> findBranoDecrescente();
-    @Query("select b from Brano b order by cantante asc")
+    @Query("select b from Brano b order by b.cantante asc")
     List<Brano> findBranoOrdAlfabetico();
-    @Query("select b from Brano b order by titolo asc")
+    @Query("select b from Brano b order by b.titolo asc")
     List<Brano> findBranoOrdCrescTitolo();
 
-    void deleteBycantanteAndtTitolo(String cantante, String titolo);
+    void deleteByCantanteAndTitolo(String cantante, String titolo);
 
-    Brano getById(Long branoid);
 }

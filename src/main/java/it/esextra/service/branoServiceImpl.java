@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -45,12 +44,12 @@ public class branoServiceImpl implements branoService {
     @Override
     @Transactional
     public void updateBrano(Brano brano) {
-        Brano temp = branoRepository.getById(brano.getBranoid());
+        Brano temp = branoRepository.getById(brano.getBrano_id());
     }
 
     @Override
     public void deleteBranoBycanatnteAndtitolo(String cantante, String titolo) {
-        branoRepository.deleteBycantanteAndtTitolo(cantante, titolo);
+        branoRepository.deleteByCantanteAndTitolo(cantante, titolo);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class BranoController {
     ResponseEntity<Brano> saveBrano(@RequestBody Brano brano){
         branoService.saveBrano(brano);
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/BranoController/" + brano.getBranoid()).toUriString());
+                .path("/BranoController/" + brano.getBrano_id()).toUriString());
 
         log.info("Brano {}, {}, {} salvato all'interno del db raggiungibile al link {} ",brano.getCantante(), brano.getTitolo(),brano.getAlbum(), uri.toString());
         return ResponseEntity.created(uri).body(brano);

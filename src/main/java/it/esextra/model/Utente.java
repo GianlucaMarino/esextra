@@ -7,6 +7,8 @@ import org.springframework.data.annotation.Id;
 
 
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,11 +19,13 @@ import java.util.Collection;
 @NoArgsConstructor
 public class Utente {
 
-    @Id
-    String id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
     String username;
     String nome;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<Role>();
     String password;
+
+
 }

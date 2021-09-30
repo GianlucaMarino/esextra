@@ -11,18 +11,19 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 public class Brano {
-    @Id
+  /*  @Id
     @SequenceGenerator(
-            name = "brano",
+            name = "brano_id",
             sequenceName = "brano_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "brano_sequence"
-    )
+    )*/
 
-    Long branoid;
+  @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Long brano_id;
     String titolo;
     String cantante;
     String album;

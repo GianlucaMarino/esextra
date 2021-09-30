@@ -77,7 +77,7 @@ public class utenteServiceImpl implements utenteService, UserDetailsService {
         log.info("Aggiungo il ruolo {} all'utente {}.",role.getNome(),utente.getUsername());
         utente.getRoles().add(role);
 
-        this.utenteRepository.delete(utente.getId());
+        this.utenteRepository.deleteById(utente.getId());
         this.utenteRepository.save(utente);
 
     }
